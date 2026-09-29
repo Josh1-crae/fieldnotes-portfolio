@@ -1,13 +1,14 @@
-# Mara Vale — Photographer & Image Maker
+# Jot. — Personal Notes
 
-A responsive four-page portfolio built with Next.js App Router, TypeScript, and Tailwind CSS. The shared header highlights the current route and supports keyboard navigation.
+A simple, responsive notes app built with Next.js App Router, TypeScript, and React. Create, edit, search, and delete notes; duplicate titles are checked as you type. Notes are saved in the current browser's local storage.
 
-## Pages
+## Features
 
-- `/` — Home
-- `/portfolio` — Selected projects
-- `/about` — Studio biography and details
-- `/gallery` — Visual diary
+- Add notes with a title and description
+- View and search the complete note collection
+- Edit or delete an existing note
+- Detect duplicate titles and persist notes between visits
+- Press `/` to focus search and `Escape` to clear it
 
 ## Run locally
 
