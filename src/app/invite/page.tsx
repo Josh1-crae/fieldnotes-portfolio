@@ -10,6 +10,25 @@ const coffeeSpots = [
   { id: "favorite", name: "Your favorite place", detail: "You choose. I’ll be there." },
   { id: "new", name: "Somewhere new", detail: "A tiny adventure, with caffeine." },
 ];
+const noLabels = [
+  "No", "Still no?", "A firm no?", "You’re sure?", "Really sure?", "Coffee’s quite nice…", "Still a no?", "Boundaries respected", "One last no?", "Absolutely not?",
+  "Nope?", "Still thinking?", "The mug is ready…", "Not even a little?", "No, but politely?", "You remain unconvinced?", "The offer stands…", "Still a no, then?", "No with confidence?", "I admire the resolve.",
+  "A very definite no?", "I can wait…", "Last little ask?", "Still not today?", "No thanks",
+];
+const noMessages = [
+  "Okay, I’m listening. Just making my case.",
+  "A fair answer. The yes button is taking this personally.",
+  "Noted. The button has begun its gentle transformation.",
+  "You have excellent follow-through.",
+  "This is a surprisingly resilient little yes button.",
+  "No pressure. Just an increasingly enthusiastic button.",
+  "I admire your commitment to the bit.",
+  "Your no is still a perfectly good answer.",
+  "The coffee is still optional, for the record.",
+  "I may have overestimated my persuasive powers.",
+  "A very consistent answer. Respect.",
+  "The yes button is now basically a billboard.",
+];
 
 function getFormattedDate(date: string) {
   if (!date) return "your chosen day";
@@ -24,7 +43,7 @@ export default function InvitationPage() {
   const [coffeeSpot, setCoffeeSpot] = useState("");
 
   const chooseNo = () => {
-    if (noCount >= 3) {
+    if (noCount >= 24) {
       setShowNoThanks(true);
       return;
     }
@@ -66,12 +85,12 @@ export default function InvitationPage() {
             <h1>Would you let<br />me take you for<br /><em>a coffee?</em></h1>
             <p className="invite-copy">Just us, a good cup, and a conversation that forgets to check the time.</p>
             <div className="answer-row">
-              <button className="answer-yes" style={{ "--yes-scale": 1 + noCount * 0.16 } as React.CSSProperties} type="button" onClick={() => setStep(1)}>
+              <button className="answer-yes" style={{ "--yes-scale": 1 + noCount * 0.035 } as React.CSSProperties} type="button" onClick={() => setStep(1)}>
                 <span>Yes, let’s go</span><span className="answer-arrow" aria-hidden="true">↗</span>
               </button>
-              <button className="answer-no" type="button" onClick={chooseNo}>{noCount === 0 ? "No" : noCount === 1 ? "Still no?" : noCount === 2 ? "You sure?" : "No thanks"}</button>
+              <button className="answer-no" type="button" onClick={chooseNo}>{noLabels[noCount]}</button>
             </div>
-            {noCount > 0 && <p className="playful-note" role="status">{noCount === 1 ? "Okay, I’m listening. Just making my case." : noCount === 2 ? "That yes button has had a growth spurt." : "I can take a hint. No hard feelings."}</p>}
+            {noCount > 0 && <p className="playful-note" role="status">{noMessages[(noCount - 1) % noMessages.length]}</p>}
             <div className="invite-card-footer"><span>NO PRESSURE. EXCEPT ABOUT THE COFFEE.</span><span>01 / 04</span></div>
           </article>
         ) : step === 1 ? (
