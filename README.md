@@ -18,12 +18,3 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). Run `npm run lint` and `npm run build` to check the project.
 
-## Screenshots
-
-![Home page](screenshots/home.png)
-
-![Portfolio page](screenshots/portfolio.png)
-
-![About page](screenshots/about.png)
-
-![Gallery page](screenshots/gallery.png)
